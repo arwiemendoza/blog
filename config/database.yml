@@ -9,11 +9,11 @@ default: &default
  
 development:
  <<: *default
- database: hello_postgresql
+ database: blog_dev
  test:
  <<: *default
- database: hello_test
+ database: blog_test
  
 production:
  <<: *default
- database: hello_prod
+ database: blog_prod
