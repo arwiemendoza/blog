@@ -2,26 +2,24 @@ require 'rails_helper'
 
 RSpec.describe Category, type: :model do
 
-    let!(:category) {Category.new}
+  context 'Validations' do
+    it '1. Not valid without a name' do
 
-    context 'Validations' do
-        it '1. Is not valid without a name' do
-            category.name = nil
+      category = Category.new(name: nil)
 
-            expect(article).to_not be_valid
-        end
-
-        it '2. Name should be more than 3 characters' do
-            category.name = 'th'
-
-            expect(category).to_not be_valid
-        end
-
-        it '3. Name should be unique' do
-            Category.create!(:name=> 'unique')
-            new_cat = Category.new(:name=> 'unique')
-
-            expect(new_cat).to_not be_valid
-        end 
+      expect(category).to_not be_valid
     end
+
+    it '2. Minimum of 3 characters' do
+      category = Category.new(name: "gh")
+
+      expect(category).to_not be_valid
+    end
+
+    it '3. Maximum of 10 characters' do
+      category = Category.new(name: "qwertyuiopqwer")
+
+      expect(category).to_not be_valid
+    end
+  end
 end
