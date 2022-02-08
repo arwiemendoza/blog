@@ -1,24 +1,63 @@
-# README
+# Handy Bunny
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+    Ruby Version ruby-2.7.4
 
-Things you may want to cover:
+## Installation
 
-* Ruby version
+```
+git clone https://github.com/arwiemendoza/blog.git
+```
 
-* System dependencies
+```
+cd blog
+```
 
-* Configuration
+```
+For Windows:
 
-* Database creation
+    sudo service postgresql start
+```
 
-* Database initialization
+```
+For Mac:
 
-* How to run the test suite
+    brew services start postgresql
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+```
+bundle install
+```
 
-* Deployment instructions
+```
+rails db:migrate
+```
 
-* ...
+```
+For Windows:
+
+    Open database.yml
+    Uncomment username and password
+```
+
+```
+For Mac:
+
+    Open database.yml
+    Comment username and password
+```
+
+```
+rails s
+```
+
+## Demo
+
+    https://arwie-blogapp.herokuapp.com/articles
+
+<br/>
+
+## Features
+
+-   User is able to create, view, edit, and delete an article
+-   User can put a comment to an article
+-   Comments are filtered according to the article
