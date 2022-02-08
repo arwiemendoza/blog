@@ -59,5 +59,5 @@ rails s
 ## Features
 
 -   User is able to create, view, edit, and delete an article
--   User can put a comment to an article
+-   User can put/delete a comment to an article
 -   Comments are filtered according to the article
