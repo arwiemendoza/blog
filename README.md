@@ -1,4 +1,4 @@
-# Handy Bunny
+# Blog App
 
     Ruby Version ruby-2.7.4
 
