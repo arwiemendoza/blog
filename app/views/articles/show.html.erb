@@ -1,13 +1,16 @@
+<%= link_to 'Back', articles_path %>
+<br>
+<br>
 <h1><%= @article.name %></h1>
+<br>
+
 <%= @article.body %>
 
-<br>
+<br><br>
 
 <%= link_to "Edit", edit_article_path(@article) %>
 <%= link_to "Destroy", article_path(@article), method: :delete, data: { confirm: "Are you sure?" }%>
-
 <br>
-
-<%= link_to 'Back', articles_path %>
+<br>
 
 <%= render 'comments/index' %>

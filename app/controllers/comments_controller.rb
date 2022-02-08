@@ -16,6 +16,7 @@ class CommentsController < ApplicationController
         @comment = @article.comments.new(comment_params)
         
          if @comment.save
+            flash[:notice] = "Comment successfully created"
             redirect_to article_path(@article)
         else
             render :new
