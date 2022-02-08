@@ -1,17 +1,15 @@
-<table>
-    <thead>
-        <th>Comments</th>
-    </thead>
+<div class=" d-flex justify-content-between pt-3 wrapper-2">
+        <h3>Comments</h3>
+</div>
 
-    <tbody>
         <% @comments.each do |comment| %>
-            <tr>
-                <td><%= comment.body %></td>
-                <td><%= button_to 'X',article_comment_path(@article,comment.id), method: :delete %>
-            </tr>
+            <div class="list-group">
+                <div class="list-group-item d-flex align-items-center justify-content-between pt-3 ">
+                <p><%= comment.body %></p>
+                <p><%= link_to article_comment_path(@article,comment.id), class:"methodBtn", method: :delete do%>
+                    <button type="button" class="btn btn-close" aria-label="Close"></button>
+                <% end %></p></div>
         <% end %>
-    </tbody>
-</table>
 
+<br>
 <%= link_to 'Add Comment', new_article_comment_path(@article) %>
-

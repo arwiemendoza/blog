@@ -1,15 +1,20 @@
-<table>
-    <th>Article Name<th>
-    <th><%= link_to 'New Article', new_article_path %>
-</table>
+<div class ="d-flex flex-column align-items-center justify-content-center wrapper">
+
+    <div class=" d-flex justify-content-between pt-3 wrapper-2">
+        <h3>Article Name<h3>
+        <div><%= link_to new_article_path do %>
+            <button type="button" class="btn btn-success">New Article</button><% end %></div>
+    </div>
 
 
 <% @articles.each do |article| %>
 
-    <table>
-        <%= article.name %>
-        <%= link_to 'View', article_path(article.id) %>
-    </table>
+    <div class="list-group">
+        <div class="list-group-item d-flex align-items-center justify-content-between pt-3 ">
+            <p><%= article.name %></p>
+            <p><%= link_to 'View', article_path(article.id) %></p>
+        </div>
+    </div>
 
 <% end %>
-
+</div>

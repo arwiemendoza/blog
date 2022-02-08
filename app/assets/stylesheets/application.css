@@ -13,3 +13,29 @@
  *= require_tree .
  *= require_self
  */
+.methodBtn:hover {
+    background-color: inherit;
+}
+
+.list-group {
+    width: 30vw;
+}
+
+.wrapper {
+    height: 60vh;
+    width: auto;
+}
+
+.wrapper-2 {
+    width: 30vw;
+}
+
+.wrapper-3 {
+    width: 8vw;
+}
+
+.backBtn {
+    position: absolute;
+    left: 10vw;
+    top: 10vh;
+}

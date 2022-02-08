@@ -1,4 +1,5 @@
-<%= link_to 'Back', articles_path %>
+<div class ="d-flex flex-column align-items-center justify-content-center wrapper">
+<%= link_to 'Back', articles_path, class: 'backBtn'%>
 <br>
 <br>
 <h1><%= @article.name %></h1>
@@ -8,9 +9,14 @@
 
 <br><br>
 
-<%= link_to "Edit", edit_article_path(@article) %>
-<%= link_to "Destroy", article_path(@article), method: :delete, data: { confirm: "Are you sure?" }%>
+<div class="d-flex align-items-center justify-content-between pt-3 wrapper-3">
+    <button type="button" class="btn btn-secondary"><%= link_to "Edit", edit_article_path(@article), class: 'text-white text-decoration-none methodBtn' %></button>
+    <button type="button" class="btn btn btn-danger"><%= link_to "Delete", article_path(@article), method: :delete, data: { confirm: "Are you sure?" } , class: 'text-white text-decoration-none methodBtn' %></button>
+</div>
+
 <br>
 <br>
 
 <%= render 'comments/index' %>
+
+</div>

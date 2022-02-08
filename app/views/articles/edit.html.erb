@@ -1,12 +1,13 @@
+<div class ="d-flex flex-column align-items-center justify-content-center wrapper">
 <%= form_with model: @article, local: true do |f| %>
 
 <p>
-    <%= f.label :name %>
+    <h5><%= f.label :name %></h5>
     <%= f.text_field :name %>
 </p>
 
 <p>
-    <%= f.label :body %>
+    <h5><%= f.label :body %></h5>
     <%= f.text_field :body %>
 </p>
 
@@ -16,4 +17,6 @@
 
 <%end %>
 
-<%= link_to 'Back', article_path %>
+<%= link_to 'Back', article_path , class: 'backBtn' %>
+
+</div>

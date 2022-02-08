@@ -1,4 +1,8 @@
 class CommentsController < ApplicationController
+    http_basic_authenticate_with name: 'arwie',
+    password: '123456',
+    only: :destroy
+
     before_action :get_article
 
     def index
@@ -25,6 +29,7 @@ class CommentsController < ApplicationController
 
     def destroy
         @comment = Comment.find(params[:id]).destroy
+        flash[:notice] = "Comment deleted"
         redirect_to article_path(@article)
     end
 

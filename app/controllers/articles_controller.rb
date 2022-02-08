@@ -1,4 +1,7 @@
 class ArticlesController < ApplicationController
+    http_basic_authenticate_with name: 'arwie',
+                               password: '123456',
+                               except: %i[index show]
     def index
         @articles = Article.all
     end
@@ -41,6 +44,7 @@ class ArticlesController < ApplicationController
         @article = Article.find(params[:id])
 
         if @article.update(article_params)
+            flash[:notice] = "Article updated successfully!"
           redirect_to @article
         else
           render :edit
