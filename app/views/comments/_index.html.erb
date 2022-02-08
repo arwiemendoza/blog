@@ -1,0 +1,17 @@
+<table>
+    <thead>
+        <th>Comments</th>
+    </thead>
+
+    <tbody>
+        <% @comments.each do |comment| %>
+            <tr>
+                <td><%= comment.body %></td>
+                <td><%= button_to 'X',article_comment_path(@article,comment.id), method: :delete %>
+            </tr>
+        <% end %>
+    </tbody>
+</table>
+
+<%= link_to 'Add Comment', new_article_comment_path(@article) %>
+

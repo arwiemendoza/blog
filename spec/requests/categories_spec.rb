@@ -14,7 +14,7 @@
 
 RSpec.describe "/categories", type: :request do
   before(:all) do
-    @category = Category.create!(name:"Test1")
+    @category = Category.create!(name:"Test09")
   end
   after(:all) do
     Category.destroy_all
@@ -89,18 +89,13 @@ RSpec.describe "/categories", type: :request do
       }
 
       it "updates the requested category" do
-        # patch category_tasks_path, params: { category: {id: "5"}, task: {name:"asd", id:"5"}  }
-        @task = @category.tasks.create(name: "Chuchu")
-        byebug
-        put category_task_url, params: { task: {category_id: @category.id, id: @task.id, name:"Chuchuedited"} }
-        expect(@task.name).to eq("Chuchuedited")
+        patch category_path(@category), params: {category:{name:'edited'}}
+        expect(response).to redirect_to(@category)
       end
 
       it "redirects to the category" do
-        category = Category.create! valid_attributes
-        patch category_url(category), params: { category: new_attributes }
-        category.reload
-        expect(response).to redirect_to(category_url(category))
+        patch category_url(@category), params: { category: new_attributes }
+        expect(response).to redirect_to(category_url(@category))
       end
     end
   end
@@ -113,18 +108,16 @@ RSpec.describe "/categories", type: :request do
   #   end
   # end
 
-  # describe "DELETE /destroy" do
-  #   it "destroys the requested category" do
-  #     category = Category.create! valid_attributes
-  #     expect {
-  #       delete category_url(category)
-  #     }.to change(Category, :count).by(-1)
-  #   end
+  describe "DELETE /destroy" do
+    it "destroys the requested category" do
+      expect {
+        delete category_url(@category)
+      }.to change(Category, :count).by(-1)
+    end
 
-  #   it "redirects to the categories list" do
-  #     category = Category.create! valid_attributes
-  #     delete category_url(category)
-  #     expect(response).to redirect_to(categories_url)
-  #   end
-  # end
+    it "redirects to the categories list" do
+      delete category_url(@category)
+      expect(response).to redirect_to(categories_url)
+    end
+  end
 end

@@ -16,13 +16,21 @@ class ArticlesController < ApplicationController
             render :new
         end
     end
-    
-    private
-    
-    def article_params
-        params.require(:article).permit(:name, :body)
+
+    def show
+        @article = Article.find(params[:id])
+        @comments = @article.comments
     end
 
+    def destroy
+
+        @article = Article.find(params[:id])
+        @article.destroy
+        flash[:notice] = "Article deleted."
+
+        redirect_to root_path        
+    end
+       
     def edit
         @article = Article.find(params[:id])
 
@@ -40,15 +48,6 @@ class ArticlesController < ApplicationController
 
     private
         def article_params
-            params.require(:article).permit(:title, :body)
+            params.require(:article).permit(:name, :body)
         end
-
-    def destroy
-
-        @article = Article.find(params[:id])
-        @article.destroy
-    
-        redirect_to root_path
-        
-    end
 end

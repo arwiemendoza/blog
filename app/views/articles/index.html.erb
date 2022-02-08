@@ -1,25 +1,16 @@
 <table>
-    <thread>
-        <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Body</th>
-        </tr>
-
-    </thread>
-
-    <tbody>
-        <% @articles.each do |article| %>
-            <tr>
-                <td><%= article.id %> </td>
-                <td><%= article.name %> </td>
-                <td><%= article.body %> </td>
-    
-            <tr>
-
-        <% end %>
-
-    </tbody>
+    <th>Article Name<th>
+    <th><%= link_to 'New Article', new_article_path %>
 </table>
 
-<%= link_to 'New Article' , new_article_path %>
+
+<% @articles.each do |article| %>
+
+
+    <table>
+        <%= article.name %>
+        <%= link_to 'View', article_path(article.id) %>
+    </table>
+
+<% end %>
+
